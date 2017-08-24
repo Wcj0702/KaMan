@@ -1,0 +1,4 @@
+$(function(){if($(".shop_defjs_loadobj").length>0&&$(".shop_defjs_loadobj").val()=="1"){if($(".shophitsobj").length>0){$(".shophitsobj").remove();}
+webJson("/template/default/ashx/totalmonth3.ashx",{shopid:$("#shopuid").val()},function(data){if(data!=null){if(data.money>0){$(".shop_month_obj").show();$(".totalmoney3").html(data.money);$(".totalnum3").html(data.num);}else{$(".shop_month_obj").hide();}
+if($(".totalmoneyall").length>0&&parseFloat($(".totalmoneyall").html())>0){$(".shop_year_obj").show();}else{$(".shop_year_obj").hide();}
+$(".guyongta").before("<span class='shophitsobj' style='margin-left: 12px;color: #ff3300;'>人气："+ data.hits+"</span>");$(".hits_1").html("人气指数："+ data.hits);}});}});

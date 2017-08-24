@@ -1,0 +1,13 @@
+function t_login(){var ur=window.location.href;if(location.href!=""&&!+[1,]&&window.event){window.event.returnValue=false;}
+location="http://www.680.com/login.html?tourl="+ur;return false;}
+function upck(id){$.ajax({type:"post",url:"../inc/upck.asp",data:"act=do&id="+id+"&rnd="+Math.random(),success:function(msg){$('.jink').html(msg);}})}
+function t_logout(){var ur=window.location.href;if(location.href!=""&&!+[1,]&&window.event){window.event.returnValue=false;}
+location="http://www.680.com/logout.asp?tourl="+ur;return false;}
+function ckLog(){$.getJSON("http://www.680.com/inc_vk/cklog.asp?rnd="+Math.random()+"&callback=?",function(data){if(data.err=="0"){$(".top_one").html(data.top);if($(".lr-uc").length>0){$(".lr-uc").html(data.msg);$(".lr-uc").attr('class','lr-uc11');$(".lr-uc11").hover(function(){$(".logs").show();},function(){$(".logs").hide();});}}})}
+function loadTop(){if($(".dp_name_h a").length==2){var t_vip_sign_class=$(".dp_name_h a").eq(1).attr("class");if(t_vip_sign_class.indexOf("_")!=-1){t_vip_sign_class=t_vip_sign_class.split("_")[2];if(t_vip_sign_class!=""&&parseInt(t_vip_sign_class)>3){if(!$(".witkeyhome-nav").hasClass("vk_shop_nav_2"))
+{$(".witkeyhome-nav").addClass("vk_shop_nav_2");$(".witkeyhome-nav li").eq(4).after("<li><a href=\"credit.html\"><span>信用证书</span></a></li>");$(".witkeyhome-nav li").css("width","128px");}}}}
+ckLog();$(".t_wk").hover(function(){$(this).find("div").addClass("wk_box");$(this).find(".wk_list").show();},function(){$(this).find("div").removeClass("wk_box")
+$(this).find(".wk_list").hide();})
+$(".deluwm").hover(function(){$(".delu").css({"height":"25px","border-bottom":"#F7F7F7 1px solid"});$(".dlk").show();},function(){$(".delu").css({"height":"21px","border-bottom":"#EFEFEF 1px solid"});$(".dlk").hide();});$(".dlk input").click(function(){if($(this).index()=="0"){if($(this).val()=="请输入威客用户名"){$(this).val("");$(this).css("color","#333333");}}else if($(this).index()=="2"){if($(this).val()=="请输入密码"){$("#pd").hide();$("#pwd").show();$("#pwd").focus();$(this).css("color","#333333");}}})
+$(".dlk input").blur(function(){if($(this).index()=="0"){if($(this).val()==""){$(this).val("请输入威客用户名");$(this).css("color","#cccccc");}}else if($(this).index()=="3"){if($(this).val()==""){$("#pwd").hide();$("#pd").show();$("#pd").css("color","#cccccc");}}})
+$('body').append('<div id="j-witkeyhome-contactbox" style="display:none"></div><div id="mlfooter-wrapper" style="z-index:10; padding-right:5px; font-size:12px;display:none"></div>');}
